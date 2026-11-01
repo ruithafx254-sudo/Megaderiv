@@ -1087,7 +1087,7 @@ button:active {
                 </div>
 
                 <div class="auth-tabs" style="margin-bottom: 20px; padding: 4px; border: 1px solid var(--card-border); display: grid; grid-template-columns: repeat(3, 1fr);">
-                    <button class="auth-tab active" id="mode-ai-tab" onclick="switchTradeMode('ai')">AI Bot</button>
+                    <button class="auth-tab active" id="mode-ai-tab" onclick="switchTradeMode('ai')">AI BOT PRO</button>
                     <button class="auth-tab" id="mode-manual-tab" onclick="switchTradeMode('manual')">Manual</button>
                     <button class="auth-tab" id="mode-bulk-tab" onclick="switchTradeMode('bulk')">Bulk Trader</button>
                 </div>
@@ -1129,7 +1129,7 @@ button:active {
                     <input type="number" id="inp-multi" value="2.1" step="0.1">
                 </div>
                 
-                <button class="master-btn" id="engine-btn" onclick="toggleBot()">Start Trading Bot</button>
+                <button class="master-btn" id="engine-btn" onclick="toggleBot()">Start AI BOT PRO</button>
                 <button class="master-btn" id="manual-btn" style="display:none;" onclick="placeManualTrade()">Place Trade</button>
                 <button class="master-btn" id="bulk-btn" style="display:none; background: var(--warning); color: #000; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);" onclick="toggleBulkTrader()">Start Bulk Trader</button>
             </div>
@@ -2381,7 +2381,7 @@ function toggleBot(){
         isRunning = false;
         clearTimeout(scanLoop);
         btn.classList.remove("active");
-        btn.innerText = "Start Trading Bot";
+        btn.innerText = "Start AI BOT PRO";
         document.getElementById("sig-main").innerText = "--";
         document.getElementById("sig-status").innerText = "Bot stopped.";
         return;
@@ -2392,7 +2392,7 @@ function toggleBot(){
     sessionPnL = 0;
     isRunning = true;
     btn.classList.add("active");
-    btn.innerText = "Stop Trading Bot";
+    btn.innerText = "Stop AI BOT PRO";
     runCycle();
 }
 
