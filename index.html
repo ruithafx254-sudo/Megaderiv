@@ -15,7 +15,7 @@
     --card: #0f172a;                
     --card-elevated: #1e293b;       
     --card-border: rgba(59, 130, 246, 0.12); 
-    --primary: #2563eb; /* Vibrant Royal Blue */             
+    --primary: #2563eb;             
     --primary-hover: #3b82f6;
     --success: #22c55e;             
     --danger: #ef4444;                
@@ -327,13 +327,7 @@ button:active {
     box-shadow: 0 10px 25px rgba(0,0,0,0.04);
 }
 
-/* REARRANGED DASHBOARD COMPONENT STYLES */
-.dashboard-top-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-}
-
+/* DASHBOARD COMPONENTS */
 .balance-card {
     display: flex;
     justify-content: space-between;
@@ -900,7 +894,7 @@ button:active {
 
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* RESPONSIVE DESKTOP PERFECT FIT */
+/* RESPONSIVE DESKTOP PERFECT FIT WITH EXPLICIT GRID CLASSES */
 @media(min-width: 1024px) {
     html, body { padding: 0; background: var(--bg); overflow-y: auto; height: auto; min-height: 100vh; }
     
@@ -929,13 +923,12 @@ button:active {
         align-items: start; 
     }
     
-    .balance-card { grid-column: 1 / -1; }
-    .grid { grid-column: 1 / 2; grid-row: 2; }
-    .history-bar-btn { grid-column: 2 / 3; grid-row: 2; height: 100%; margin: 0; }
-    #home > div:nth-of-type(4) { grid-column: 1 / 2; grid-row: 3; } 
-    #home > .card:nth-of-type(3) { grid-column: 1 / 2; grid-row: 4; } 
-    #home > .card:nth-of-type(4) { grid-column: 1 / 2; grid-row: 5; } 
-    .floating-ai { grid-column: 2 / 3; grid-row: 3 / span 3; }
+    .dash-balance { grid-column: 1 / -1; }
+    .dash-actions { grid-column: 1 / 2; grid-row: 2; }
+    .dash-history { grid-column: 2 / 3; grid-row: 2; height: 100%; margin: 0; }
+    .dash-chart { grid-column: 1 / 2; grid-row: 3; } 
+    .dash-digits { grid-column: 1 / 2; grid-row: 4; } 
+    .dash-engine { grid-column: 2 / 3; grid-row: 3 / span 2; }
 
     .auth { align-items: center; justify-content: center; }
     .auth-top { position: absolute; top: 40px; left: 50px; right: 50px; margin: 0; }
@@ -1040,11 +1033,11 @@ button:active {
 
     <div class="main">
 
-        <!-- REARRANGED HOME VIEW LAYOUT -->
+        <!-- HOME VIEW LAYOUT WITH EXPLICIT CLASSES FOR GRID ALIGNMENT -->
         <div class="view active" id="home">
             
             <!-- 1. Balance Banner Card -->
-            <div class="card balance-card">
+            <div class="card balance-card dash-balance">
                 <div>
                     <div class="balance-title">Account Balance</div>
                     <div class="balance-amount" id="balance">$0.00</div>
@@ -1052,8 +1045,8 @@ button:active {
                 <button class="deposit-top-btn" onclick="openPayment('deposit')">+ Deposit</button>
             </div>
 
-            <!-- 2. Quick Action Buttons & History Bar -->
-            <div class="grid">
+            <!-- 2. Quick Action Buttons -->
+            <div class="grid dash-actions">
                 <button class="action-btn" onclick="openPayment('deposit')">
                     <span class="btn-title">Deposit Funds</span>
                     <span>M-Pesa / Crypto</span>
@@ -1064,13 +1057,14 @@ button:active {
                 </button>
             </div>
 
-            <button class="history-bar-btn" onclick="openHistory()">
+            <!-- 3. History Bar -->
+            <button class="history-bar-btn dash-history" onclick="openHistory()">
                 <span>Transaction History Ledger</span>
                 <span style="color:var(--primary); font-size:1.2rem;">›</span>
             </button>
 
-            <!-- 3. Live Market Chart & Volatility Selector -->
-            <div class="card">
+            <!-- 4. Live Market Chart & Volatility Selector -->
+            <div class="card dash-chart">
                 <div style="margin-bottom: 12px;">
                     <div class="asset-selector-title">Deriv Volatility Indices</div>
                     <div class="asset-bar" id="volatility-bar"></div>
@@ -1084,8 +1078,8 @@ button:active {
                 </div>
             </div>
 
-            <!-- 4. Trading Engine Panel (AI / Manual / Bulk) -->
-            <div class="card floating-ai">
+            <!-- 5. Trading Engine Panel (AI / Manual / Bulk) -->
+            <div class="card floating-ai dash-engine">
                 <div class="ai-head">
                     <div class="ai-title" id="trade-panel-title">Trading Engine</div>
                     <div class="live-badge" id="live-indicator"><div class="dot"></div>Live</div>
@@ -1138,8 +1132,8 @@ button:active {
                 <button class="master-btn" id="bulk-btn" style="display:none; background: var(--warning); color: #000; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);" onclick="toggleBulkTrader()">Start Bulk Trader</button>
             </div>
 
-            <!-- 5. Last Digit Analysis Grid (Moved near bottom for clean analytics flow) -->
-            <div class="card">
+            <!-- 6. Last Digit Analysis Grid -->
+            <div class="card dash-digits">
                 <div class="asset-selector-title" style="margin-bottom: 12px;">Last Digit Stats (0 - 9)</div>
                 <div class="digit-grid" id="digit-grid-nodes"></div>
             </div>
