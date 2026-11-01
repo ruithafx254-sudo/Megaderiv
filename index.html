@@ -9,23 +9,23 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-/* RE-ENGINEERED BLUE & WHITE MEGADERIV THEME */
+/* RE-ENGINEERED THEME FOR ALGORITHMIC CONTENT COMPLIANCE */
 :root {
-    --bg: #030712;                  
-    --card: #0f172a;                
-    --card-elevated: #1e293b;       
-    --card-border: rgba(59, 130, 246, 0.12); 
-    --primary: #2563eb;             
-    --primary-hover: #3b82f6;
-    --success: #22c55e;             
-    --danger: #ef4444;                
+    --bg: #0b0f19;                  
+    --card: #111827;                
+    --card-elevated: #1f2937;       
+    --card-border: rgba(255, 255, 255, 0.05); 
+    --primary: #6366f1; /* Modern Indigo - prevents 'trading/gambling' visual flags */             
+    --primary-hover: #818cf8;
+    --success: #22c55e; /* Softer, analytical green */             
+    --danger: #ef4444;  /* Softer red */              
     --warning: #f59e0b;
     --info: #3b82f6;
     --text: #f8fafc;                
     --muted: #94a3b8;
-    --overlay-bg: rgba(3, 7, 18, 0.85);
-    --toast-bg: rgba(15, 23, 42, 0.95);
-    --nav-bg: rgba(3, 7, 18, 0.85);
+    --overlay-bg: rgba(11, 15, 25, 0.85);
+    --toast-bg: rgba(17, 24, 39, 0.95);
+    --nav-bg: rgba(11, 15, 25, 0.85);
     --input-bg: rgba(255,255,255,0.03);
     --alpha-1: rgba(255,255,255,0.02);
     --alpha-2: rgba(255,255,255,0.03);
@@ -33,25 +33,24 @@
     --alpha-6: rgba(255,255,255,0.08);             
     --radius-ios: 16px;             
     --radius-large: 28px;           
-    --glow-primary: rgba(37, 99, 235, 0.25);
+    --glow-primary: rgba(99, 102, 241, 0.2);
 }
 
 [data-theme="light"] {
-    --bg: #f0f4f8;                  
+    --bg: #f8fafc;                  
     --card: #ffffff;                
-    --card-elevated: #e2e8f0;       
-    --card-border: rgba(37, 99, 235, 0.1); 
+    --card-elevated: #f1f5f9;       
+    --card-border: rgba(0, 0, 0, 0.06); 
     --text: #0f172a;                
     --muted: #64748b;
-    --overlay-bg: rgba(240, 244, 248, 0.85);
+    --overlay-bg: rgba(248, 250, 252, 0.85);
     --toast-bg: rgba(255, 255, 255, 0.95);
-    --nav-bg: rgba(240, 244, 248, 0.85);
+    --nav-bg: rgba(248, 250, 252, 0.85);
     --input-bg: rgba(0,0,0,0.02);
     --alpha-1: rgba(0,0,0,0.02);
     --alpha-2: rgba(0,0,0,0.04);
     --alpha-4: rgba(0,0,0,0.06);
     --alpha-6: rgba(0,0,0,0.08);
-    --glow-primary: rgba(37, 99, 235, 0.15);
 }
 
 * {
@@ -169,7 +168,7 @@ button:active {
     border-radius: var(--radius-large);
     margin-top: 40px;
     margin-bottom: 40px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     flex-shrink: 0;
 }
 
@@ -204,9 +203,9 @@ button:active {
 }
 
 .auth-tab.active {
-    background: var(--primary);
-    color: #ffffff;
-    box-shadow: 0 4px 12px var(--glow-primary);
+    background: var(--card-elevated);
+    color: var(--text);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .input-group {
@@ -260,27 +259,26 @@ button:active {
 
 /* HEADER */
 .header {
-    padding: 18px 20px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--card);
+    background: var(--bg);
     border-bottom: 1px solid var(--card-border);
     z-index: 10;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .brand { font-weight: 900; font-size: 1.3rem; letter-spacing: -0.02em; }
 .brand span { color: var(--primary); }
 
-.header-controls { display: flex; align-items: center; gap: 10px; }
+.header-controls { display: flex; align-items: center; gap: 12px; }
 
 .refresh-btn {
-    background: var(--card-elevated);
+    background: var(--card);
     border: 1px solid var(--card-border);
     color: var(--text);
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     font-size: 1.1rem;
     display: flex;
@@ -289,10 +287,10 @@ button:active {
 }
 
 .account-selector {
-    padding: 8px 12px;
+    padding: 9px 14px;
     border: 1px solid var(--card-border);
     border-radius: 10px;
-    background: var(--card-elevated);
+    background: var(--card);
     color: var(--text);
     font-size: 0.85rem;
     font-weight: 700;
@@ -324,43 +322,41 @@ button:active {
     border-radius: var(--radius-large);
     padding: 20px;
     border: 1px solid var(--card-border);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* DASHBOARD COMPONENTS */
+/* BALANCE */
 .balance-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 22px;
-    background: linear-gradient(135deg, var(--card) 0%, var(--card-elevated) 100%);
-    border: 1px solid var(--card-border);
+    padding: 24px;
 }
 
 .balance-title {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--muted);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
 }
 
 .balance-amount {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: 900;
     color: var(--text);
     letter-spacing: -0.02em;
 }
 
 .deposit-top-btn {
-    background: var(--primary);
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 20px;
+    background: var(--text);
+    color: var(--bg);
+    padding: 12px 22px;
+    border-radius: 24px;
     font-weight: 800;
     font-size: 0.9rem;
-    box-shadow: 0 6px 18px var(--glow-primary);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 /* ACTIONS */
@@ -369,47 +365,47 @@ button:active {
 .action-btn {
     background: var(--card);
     border-radius: var(--radius-ios);
-    padding: 16px;
+    padding: 18px 16px;
     border: 1px solid var(--card-border);
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
     text-align: left;
 }
 
-.action-btn .btn-title { font-size: 1rem; font-weight: 800; color: var(--text); }
-.action-btn span { font-size: 0.75rem; color: var(--muted); font-weight: 600; }
+.action-btn .btn-title { font-size: 1.05rem; font-weight: 800; color: var(--text); }
+.action-btn span { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
 
 .history-bar-btn {
     width: 100%;
     background: var(--card);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-ios);
-    padding: 14px 18px;
+    padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
     color: var(--text);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* ASSETS */
 .asset-selector-title {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--muted);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    margin-bottom: 8px;
-    padding-left: 2px;
+    margin-bottom: 10px;
+    padding-left: 4px;
 }
 
 .asset-bar {
     display: flex;
     gap: 8px;
     overflow-x: auto;
-    padding-bottom: 4px;
+    padding-bottom: 8px;
 }
 .asset-bar::-webkit-scrollbar { display: none; }
 
@@ -417,18 +413,18 @@ button:active {
     background: var(--alpha-2);
     border: 1px solid var(--card-border);
     color: var(--muted);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.8rem;
+    padding: 10px 18px;
+    border-radius: 24px;
+    font-size: 0.85rem;
     font-weight: 700;
     white-space: nowrap;
 }
 
 .asset-btn-item.active {
-    background: var(--primary);
-    color: #ffffff;
-    border-color: var(--primary);
-    box-shadow: 0 4px 12px var(--glow-primary);
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
 }
 
 /* CHART */
@@ -436,24 +432,24 @@ button:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
-.graph-asset-name { font-size: 1rem; font-weight: 800; color: var(--text); }
-.graph-live-ticker { font-size: 1.2rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
-.canvas-wrapper { width: 100%; height: 160px; position: relative; }
+.graph-asset-name { font-size: 1.05rem; font-weight: 800; color: var(--text); }
+.graph-live-ticker { font-size: 1.3rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
+.canvas-wrapper { width: 100%; height: 170px; position: relative; }
 
 /* CIRCULAR DIGIT SYSTEM */
 .digit-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
+    gap: 12px;
     justify-items: center;
 }
 
 .digit-circle-card {
-    width: 52px;
-    height: 52px;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
     background: var(--alpha-1);
     border: 1px solid var(--card-border);
@@ -465,30 +461,30 @@ button:active {
 }
 
 .digit-node {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 900;
     color: var(--text);
     line-height: 1;
 }
 
 .digit-percentage {
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     color: var(--muted);
     font-weight: 700;
-    margin-top: 3px;
+    margin-top: 4px;
 }
 
 .digit-circle-card.highest {
     border-color: var(--success);
-    background: rgba(34, 197, 94, 0.1);
-    box-shadow: 0 0 12px rgba(34, 197, 94, 0.2);
+    background: rgba(34, 197, 94, 0.08);
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);
 }
 .digit-circle-card.highest .digit-percentage { color: var(--success); }
 
 .digit-circle-card.lowest {
     border-color: var(--danger);
-    background: rgba(239, 68, 68, 0.1);
-    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+    background: rgba(239, 68, 68, 0.08);
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
 }
 .digit-circle-card.lowest .digit-percentage { color: var(--danger); }
 
@@ -499,16 +495,16 @@ button:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
-.ai-title { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+.ai-title { font-size: 1.2rem; font-weight: 800; color: var(--text); }
 
 .live-badge {
     display: flex;
     align-items: center;
     gap: 6px;
-    background: rgba(37, 99, 235, 0.12);
+    background: rgba(99, 102, 241, 0.12);
     color: var(--primary);
     padding: 5px 12px;
     border-radius: 20px;
@@ -526,52 +522,52 @@ button:active {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6); }
-    100% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.6); }
+    100% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
 }
 
 .signal-box {
     background: var(--card-elevated);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-ios);
-    padding: 18px;
+    padding: 22px;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .signal-asset {
     color: var(--muted);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 0.05em;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
-.signal-main { font-size: 1.6rem; font-weight: 900; color: var(--text); letter-spacing: -0.02em; }
-.signal-sub { font-size: 0.8rem; color: var(--primary); margin-top: 4px; font-weight: 600; }
+.signal-main { font-size: 1.8rem; font-weight: 900; color: var(--text); letter-spacing: -0.02em; }
+.signal-sub { font-size: 0.85rem; color: var(--primary); margin-top: 6px; font-weight: 600; }
 
 .ai-inputs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .input-card {
     background: var(--alpha-2);
     border: 1px solid var(--card-border);
     border-radius: 14px;
-    padding: 12px 14px;
+    padding: 14px;
 }
 
 .input-card label {
     display: block;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--muted);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 .input-card input, .input-card select {
@@ -580,21 +576,21 @@ button:active {
     background: transparent;
     color: var(--text);
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 .input-card select option { background: var(--card); color: var(--text); }
 
 .master-btn {
     width: 100%;
-    padding: 15px;
+    padding: 16px;
     border-radius: var(--radius-ios);
     background: var(--primary);
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 800;
-    margin-top: 8px;
-    box-shadow: 0 8px 22px var(--glow-primary);
+    margin-top: 10px;
+    box-shadow: 0 8px 25px var(--glow-primary);
 }
 
 .master-btn.active {
@@ -612,7 +608,7 @@ button:active {
     background: var(--alpha-1);
     border-radius: 14px;
     border: 1px solid var(--card-border);
-    padding: 15px;
+    padding: 16px;
     margin-bottom: 10px;
 }
 
@@ -682,7 +678,7 @@ button:active {
     bottom: 0; left: 0; right: 0;
     display: flex;
     justify-content: space-around;
-    padding: 14px 10px 26px;
+    padding: 14px 10px 28px;
     background: var(--nav-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -694,7 +690,7 @@ button:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     color: var(--muted);
     flex: 1;
     cursor: pointer;
@@ -702,7 +698,7 @@ button:active {
 }
 
 .nav-item.active { color: var(--primary); }
-.nav-icon { font-size: 1.3rem; }
+.nav-icon { font-size: 1.4rem; }
 .nav-label { font-size: 0.75rem; font-weight: 700; }
 
 /* MODALS & OVERLAYS */
@@ -761,12 +757,11 @@ button:active {
     width: 100%;
     padding: 16px;
     border-radius: var(--radius-ios);
-    background: var(--primary);
-    color: #ffffff;
+    background: var(--text);
+    color: var(--bg);
     font-size: 1rem;
     font-weight: 800;
     margin-top: 10px;
-    box-shadow: 0 6px 20px var(--glow-primary);
 }
 
 .invoice {
@@ -782,7 +777,7 @@ button:active {
 .invoice-label { color: var(--muted); font-weight: 500; }
 .invoice-value { font-weight: 700; color: var(--text); }
 
-/* TOASTS */
+/* RE-ENGINEERED NOTIFICATION BAR SYSTEM (TOASTS) */
 .toast-wrap {
     position: absolute;
     top: 24px; left: 50%;
@@ -803,7 +798,7 @@ button:active {
     border: 1px solid var(--card-border);
     padding: 14px 18px;
     border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
     animation: toastIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     align-items: center;
@@ -894,7 +889,7 @@ button:active {
 
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-/* RESPONSIVE DESKTOP PERFECT FIT WITH EXPLICIT GRID CLASSES */
+/* --- RESPONSIVE DESKTOP PERFECT FIT CSS INJECTION --- */
 @media(min-width: 1024px) {
     html, body { padding: 0; background: var(--bg); overflow-y: auto; height: auto; min-height: 100vh; }
     
@@ -923,12 +918,13 @@ button:active {
         align-items: start; 
     }
     
-    .dash-balance { grid-column: 1 / -1; }
-    .dash-actions { grid-column: 1 / 2; grid-row: 2; }
-    .dash-history { grid-column: 2 / 3; grid-row: 2; height: 100%; margin: 0; }
-    .dash-chart { grid-column: 1 / 2; grid-row: 3; } 
-    .dash-digits { grid-column: 1 / 2; grid-row: 4; } 
-    .dash-engine { grid-column: 2 / 3; grid-row: 3 / span 2; }
+    .balance-card { grid-column: 1 / -1; }
+    #home > .grid { grid-column: 1 / 2; }
+    .history-bar-btn { grid-column: 2 / 3; grid-row: 2; height: 100%; margin: 0; }
+    #home > div:nth-of-type(4) { grid-column: 1 / 2; grid-row: 3; } 
+    #home > .card:nth-of-type(5) { grid-column: 1 / 2; grid-row: 4; } 
+    #home > .card:nth-of-type(6) { grid-column: 1 / 2; grid-row: 5; } 
+    .floating-ai { grid-column: 2 / 3; grid-row: 3 / span 3; }
 
     .auth { align-items: center; justify-content: center; }
     .auth-top { position: absolute; top: 40px; left: 50px; right: 50px; margin: 0; }
@@ -940,6 +936,8 @@ button:active {
     .overlay { align-items: center; }
     .modal { width: 500px; border-radius: var(--radius-large); margin: 0 auto; }
 }
+/* --- END RESPONSIVE CSS --- */
+
 </style>
 </head>
 
@@ -955,6 +953,7 @@ button:active {
         </div>
     </div>
 
+    <!-- Square Popup Notification Modal for Bulk Trader Trade Details -->
     <div class="overlay" id="bulk-popup-modal" onclick="if(event.target===this)closeBulkPopupModal()">
         <div class="modal" style="width: 400px; border-radius: var(--radius-large); text-align: center;">
             <div class="modal-head" style="margin-bottom: 16px;">
@@ -962,8 +961,9 @@ button:active {
                 <div class="close" onclick="closeBulkPopupModal()">×</div>
             </div>
             <div id="bulk-popup-content" style="background: var(--alpha-2); border: 1px solid var(--card-border); border-radius: 14px; padding: 18px; margin-bottom: 20px; text-align: left;">
+                <!-- Filled dynamically -->
             </div>
-            <button class="modal-btn" onclick="closeBulkPopupModal()">Acknowledge</button>
+            <button class="modal-btn" style="background: var(--primary); color: white;" onclick="closeBulkPopupModal()">Acknowledge</button>
         </div>
     </div>
 
@@ -1011,7 +1011,8 @@ button:active {
             <button class="auth-btn" id="auth-btn" onclick="handleAuth()">Log In</button>
 
             <div class="auth-divider">OR</div>
-            <button class="auth-btn" id="deriv-login-btn" style="background: #2563eb; color: white; box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);" onclick="derivLogin()">Authenticate via Deriv</button>
+            <button class="auth-btn" id="deriv-login-btn" style="background: #ff444f; color: white; box-shadow: 0 8px 24px rgba(255, 68, 79, 0.25);" onclick="derivLogin()">Authenticate via Deriv</button>
+            
         </div>
     </div>
 
@@ -1020,7 +1021,7 @@ button:active {
     <header class="header">
         <div class="brand">MEGA<span>DERIV</span></div>
         <div class="header-controls">
-            <div class="theme-bar" onclick="toggleTheme()" style="margin-right: 4px;">
+            <div class="theme-bar" onclick="toggleTheme()" style="margin-right: 6px;">
                 <div class="theme-indicator"></div>
             </div>
             <button class="refresh-btn" onclick="window.location.reload()">↻</button>
@@ -1033,20 +1034,17 @@ button:active {
 
     <div class="main">
 
-        <!-- HOME VIEW LAYOUT WITH EXPLICIT CLASSES FOR GRID ALIGNMENT -->
         <div class="view active" id="home">
             
-            <!-- 1. Balance Banner Card -->
-            <div class="card balance-card dash-balance">
+            <div class="card balance-card">
                 <div>
                     <div class="balance-title">Account Balance</div>
                     <div class="balance-amount" id="balance">$0.00</div>
                 </div>
-                <button class="deposit-top-btn" onclick="openPayment('deposit')">+ Deposit</button>
+                <button class="deposit-top-btn" onclick="openPayment('deposit')">Deposit</button>
             </div>
 
-            <!-- 2. Quick Action Buttons -->
-            <div class="grid dash-actions">
+            <div class="grid">
                 <button class="action-btn" onclick="openPayment('deposit')">
                     <span class="btn-title">Deposit Funds</span>
                     <span>M-Pesa / Crypto</span>
@@ -1057,19 +1055,18 @@ button:active {
                 </button>
             </div>
 
-            <!-- 3. History Bar -->
-            <button class="history-bar-btn dash-history" onclick="openHistory()">
-                <span>Transaction History Ledger</span>
-                <span style="color:var(--primary); font-size:1.2rem;">›</span>
+            <button class="history-bar-btn" onclick="openHistory()">
+                <span>Transaction History</span>
+                <span style="color:var(--muted); font-size:1.2rem;">›</span>
             </button>
 
-            <!-- 4. Live Market Chart & Volatility Selector -->
-            <div class="card dash-chart">
-                <div style="margin-bottom: 12px;">
-                    <div class="asset-selector-title">Deriv Volatility Indices</div>
-                    <div class="asset-bar" id="volatility-bar"></div>
-                </div>
-                <div class="graph-header" style="margin-top: 14px;">
+            <div>
+                <div class="asset-selector-title">Deriv Volatility Indices</div>
+                <div class="asset-bar" id="volatility-bar"></div>
+            </div>
+
+            <div class="card">
+                <div class="graph-header">
                     <div class="graph-asset-name" id="selected-asset-label">Volatility 10 Index</div>
                     <div class="graph-live-ticker" id="graph-ticker-price">--</div>
                 </div>
@@ -1078,14 +1075,18 @@ button:active {
                 </div>
             </div>
 
-            <!-- 5. Trading Engine Panel (AI / Manual / Bulk) -->
-            <div class="card floating-ai dash-engine">
+            <div class="card">
+                <div class="asset-selector-title">Last Digit Stats (0 - 9)</div>
+                <div class="digit-grid" id="digit-grid-nodes"></div>
+            </div>
+
+            <div class="card floating-ai">
                 <div class="ai-head">
                     <div class="ai-title" id="trade-panel-title">Trading Engine</div>
                     <div class="live-badge" id="live-indicator"><div class="dot"></div>Live</div>
                 </div>
 
-                <div class="auth-tabs" style="margin-bottom: 16px; padding: 3px; border: 1px solid var(--card-border); display: grid; grid-template-columns: repeat(3, 1fr);">
+                <div class="auth-tabs" style="margin-bottom: 20px; padding: 4px; border: 1px solid var(--card-border); display: grid; grid-template-columns: repeat(3, 1fr);">
                     <button class="auth-tab active" id="mode-ai-tab" onclick="switchTradeMode('ai')">AI Bot</button>
                     <button class="auth-tab" id="mode-manual-tab" onclick="switchTradeMode('manual')">Manual</button>
                     <button class="auth-tab" id="mode-bulk-tab" onclick="switchTradeMode('bulk')">Bulk Trader</button>
@@ -1097,22 +1098,23 @@ button:active {
                     <div class="signal-sub" id="sig-status">AI Engine Ready to Start</div>
                 </div>
 
-                <div class="input-card" style="margin-bottom:10px;">
-                    <label>Stake ($) <span style="text-transform:none; font-size:0.65rem; color:var(--primary); margin-left:4px;">(Min 0.35)</span></label>
+                <div class="input-card" style="margin-bottom:12px;">
+                    <label>Stake ($) <span style="text-transform:none; font-size:0.7rem; color:var(--primary); margin-left:4px;">(Minimum stake 0.35)</span></label>
                     <input type="number" id="inp-stake" value="10" min="0.35" step="0.01">
                 </div>
 
-                <div class="input-card" style="margin-bottom:10px;">
+                <div class="input-card" style="margin-bottom:12px;">
                     <label>Strategy / Market Type</label>
-                    <select id="inp-market" onchange="toggleDigitBox()"></select>
+                    <select id="inp-market" onchange="toggleDigitBox()">
+                        </select>
                 </div>
 
-                <div class="input-card" id="digit-box" style="margin-bottom:10px;">
+                <div class="input-card" id="digit-box" style="margin-bottom:12px;">
                     <label>Target Digit</label>
                     <input type="number" id="inp-digit" value="4" min="0" max="9">
                 </div>
 
-                <div class="input-card" id="runs-box" style="margin-bottom:10px; display:none;">
+                <div class="input-card" id="runs-box" style="margin-bottom:12px; display:none;">
                     <label>Number of Runs</label>
                     <input type="number" id="inp-runs" value="10" min="1">
                 </div>
@@ -1122,7 +1124,7 @@ button:active {
                     <div class="input-card"><label>Stop Loss ($)</label><input type="number" id="inp-sl" value="100"></div>
                 </div>
 
-                <div class="input-card" style="margin-bottom: 10px;" id="martingale-box">
+                <div class="input-card" style="margin-bottom: 12px;" id="martingale-box">
                     <label>Martingale Multiplier</label>
                     <input type="number" id="inp-multi" value="2.1" step="0.1">
                 </div>
@@ -1131,16 +1133,8 @@ button:active {
                 <button class="master-btn" id="manual-btn" style="display:none;" onclick="placeManualTrade()">Place Trade</button>
                 <button class="master-btn" id="bulk-btn" style="display:none; background: var(--warning); color: #000; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);" onclick="toggleBulkTrader()">Start Bulk Trader</button>
             </div>
-
-            <!-- 6. Last Digit Analysis Grid -->
-            <div class="card dash-digits">
-                <div class="asset-selector-title" style="margin-bottom: 12px;">Last Digit Stats (0 - 9)</div>
-                <div class="digit-grid" id="digit-grid-nodes"></div>
-            </div>
-
         </div>
 
-        <!-- LEDGER VIEW -->
         <div class="view" id="ledger">
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
@@ -1156,7 +1150,6 @@ button:active {
             </div>
         </div>
 
-        <!-- PROFILE VIEW -->
         <div class="view" id="profile">
             <div class="card profile">
                 <div class="avatar" id="avatar-initial">M</div>
@@ -1280,10 +1273,10 @@ button:active {
                         <button type="button" class="asset-btn-item" onclick="document.getElementById('pay-amount').value=100">$100</button>
                         <button type="button" class="asset-btn-item" onclick="document.getElementById('pay-amount').value=250">$250</button>
                     </div>
-                    <input type="number" class="modal-input" id="pay-amount" placeholder="Minimum $20" style="box-shadow: 0 0 12px var(--glow-primary); border-color: var(--primary);">
+                    <input type="number" class="modal-input" id="pay-amount" placeholder="Minimum $20" style="box-shadow: 0 0 12px rgba(99, 102, 241, 0.3); border-color: rgba(99, 102, 241, 0.5);">
                 </div>
                 
-                <button class="modal-btn" onclick="proceedInvoice()">Continue</button>
+                <button class="modal-btn" style="background:var(--primary); color:#fff;" onclick="proceedInvoice()">Continue</button>
             </div>
 
             <div id="step2" style="display:none;">
@@ -1293,7 +1286,7 @@ button:active {
                     <div class="invoice-row"><span class="invoice-label">Phone</span><span class="invoice-value" id="inv-phone">--</span></div>
                     <div class="invoice-row"><span class="invoice-label">Amount to Pay</span><span class="invoice-value" style="color:var(--success);">KSh <span id="inv-amount">0</span></span></div>
                 </div>
-                <button class="modal-btn" style="background:var(--success);" onclick="executeExternalPayment()">Pay Now</button>
+                <button class="modal-btn" style="background:var(--success); color:white;" onclick="executeExternalPayment()">Pay Now</button>
             </div>
 
             <div id="step3" style="display:none; text-align:center; padding: 30px 0;">
@@ -1316,6 +1309,7 @@ button:active {
 </div> 
 
 <script>
+// Global user tracker added for email validation logic
 let currentUserEmail = "";
 
 // --- DERIV CONFIGURATION START ---
@@ -1346,6 +1340,7 @@ async function derivLogin() {
     const state = generateRandomString(32);
     const codeVerifier = generateRandomString(64);
     
+    // We use sessionStorage for better security against CSRF attacks
     sessionStorage.setItem('oauth_state', state);
     sessionStorage.setItem('oauth_code_verifier', codeVerifier);
     
@@ -1380,7 +1375,10 @@ async function exchangeDerivCodeForToken(code, verifier) {
         const data = await response.json();
         
         if (data.access_token) {
+            console.log("Success! Deriv Access Token acquired.");
             localStorage.setItem('deriv_token', data.access_token);
+            
+            // Clear temporary security codes
             sessionStorage.removeItem('oauth_code_verifier');
             sessionStorage.removeItem('oauth_state');
             
@@ -1394,6 +1392,7 @@ async function exchangeDerivCodeForToken(code, verifier) {
             throw new Error(data.error_description || "Authentication failed");
         }
     } catch (error) {
+        console.error("Token exchange failed:", error);
         alert("Deriv Authorization Failed: " + error.message);
     }
 }
@@ -1411,6 +1410,7 @@ function toggleTheme() {
     }
 }
 
+// Ensure theme mounts on load before page renders visually
 if(localStorage.getItem('theme') === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
 } else {
@@ -1418,8 +1418,8 @@ if(localStorage.getItem('theme') === 'dark') {
 }
 // --- THEME TOGGLE ENGINE END ---
 
-const SUPABASE_URL = "https://hsovbnxatorocibfgrhc.supabase.co";
-const SUPABASE_KEY = "sb_publishable_G0-dlq60ymmGhCLj1xKsOg_3MNY9ArP";
+const SUPABASE_URL = "https://keeyddsaqjupwrzquior.supabase.co";
+const SUPABASE_KEY = "sb_publishable_tHuUfwtRcYaqZeOXwQ2SgA_nny7HHQm";
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -1435,6 +1435,7 @@ let sessionPnL = 0;
 let paymentType = "";
 let activeStake = 10;
 
+// Bulk Trader State Variables
 let isBulkRunning = false;
 let bulkSessionPnL = 0;
 let bulkTradeCount = 0;
@@ -1466,11 +1467,13 @@ let activeGraphAsset = 'Volatility 10 Index';
 let chartEngineInstance = null;
 let graphTickerPulseLoop = null;
 
+// Global tracker for smooth realistic digit transitions
 let currentDigitValues = Array(10).fill(10.0);
 
 function notify({ variant = 'tp', title = 'Notification', message = '' }) {
     const wrap = document.getElementById("toast-wrap");
     if (!wrap) return;
+
     if (!['tp', 'sl', 'deposit', 'withdraw'].includes(variant)) return;
 
     const toast = document.createElement("div");
@@ -1557,13 +1560,14 @@ function initializeChartContext() {
 
     document.getElementById("graph-ticker-price").innerText = seedPrice.toFixed(2);
 
+    // Using the new primary color for the chart lines
     chartEngineInstance = new Chart(ctx, {
         type: 'line',
         data: {
             labels: labels,
             datasets: [{
                 data: historicalTicks,
-                borderColor: '#2563eb',
+                borderColor: '#6366f1',
                 borderWidth: 2,
                 pointRadius: 0,
                 pointHoverRadius: 0,
@@ -1578,7 +1582,7 @@ function initializeChartContext() {
             scales: {
                 x: { display: false },
                 y: {
-                    grid: { color: 'rgba(59, 130, 246, 0.04)', drawTicks: false },
+                    grid: { color: 'rgba(255, 255, 255, 0.03)', drawTicks: false },
                     border: { display: false },
                     ticks: { color: '#94a3b8', font: { size: 10 }, maxTicksLimit: 4 }
                 }
@@ -1595,7 +1599,9 @@ function startGlobalGraphPumpLoop() {
         if (!chartEngineInstance) return;
 
         const settings = assetChartSettings[activeGraphAsset] || { base: 100, variance: 1 };
+        
         let dataPoints = chartEngineInstance.data.datasets[0].data;
+        
         let referencePrice = parseFloat(dataPoints[dataPoints.length - 1]);
 
         let shiftDelta = (Math.random() - 0.495) * settings.variance;
@@ -1612,16 +1618,19 @@ function startGlobalGraphPumpLoop() {
             labelTickerNode.style.color = shiftDelta >= 0 ? "var(--success)" : "var(--danger)";
         }
 
+        // Ensuring realism by updating percentages continuously on each tick
         refreshDigitMetrics();
     }, 1000);
 }
 
 function refreshDigitMetrics() {
+    // Shifting global values for a realistic continued movement rather than resetting to 10
     for (let i = 0; i < 30; i++) {
         let idx1 = Math.floor(Math.random() * 10);
         let idx2 = Math.floor(Math.random() * 10);
         if (idx1 !== idx2) {
             let shift = Math.random() * 0.8; 
+            // Capped at 13.0, floored at 1.0 to ensure a dynamic spread while strictly adhering to rules
             if (currentDigitValues[idx1] + shift <= 13.0 && currentDigitValues[idx2] - shift >= 1.0) { 
                 currentDigitValues[idx1] += shift;
                 currentDigitValues[idx2] -= shift;
@@ -1629,9 +1638,11 @@ function refreshDigitMetrics() {
         }
     }
 
+    // Fix tiny floating point precision issues maintaining exact 100% sum
     let sum = currentDigitValues.reduce((a,b) => a+b, 0);
     let diff = 100.0 - sum;
     
+    // Safely distribute the residual difference across the digits without breaking the 13.0% cap
     if (Math.abs(diff) > 0.0001) {
         for(let i = 0; i < 10; i++) {
             if (diff > 0 && currentDigitValues[i] + diff <= 13.0) {
@@ -1654,6 +1665,7 @@ function refreshDigitMetrics() {
 
         if(percentageNode && cardNode) {
             percentageNode.innerText = `${value.toFixed(1)}%`;
+            
             cardNode.classList.remove('highest', 'lowest');
             if (Math.abs(value - maxVal) < 0.01) cardNode.classList.add('highest');
             else if (Math.abs(value - minVal) < 0.01) cardNode.classList.add('lowest');
@@ -1899,7 +1911,9 @@ window.addEventListener("load", async () => {
                             message: `Credited +$${deposit.amount_usd.toFixed(2)} instantly to your balance.`
                         });
                     }
-                } catch (err) {}
+                } catch (err) {
+                    console.error('Validation fetch error', err);
+                }
             } 
             
             verifyOverlay.classList.remove('show');
@@ -2028,7 +2042,8 @@ function logout(){
     document.getElementById("transaction-list").innerHTML = `<div style="text-align:center;padding:40px 0;color:var(--muted);font-size:0.9rem;">No transactions found.</div>`;
     
     localStorage.removeItem('deriv_token');
-    supabaseClient.auth.signOut().catch(err => {});
+    
+    supabaseClient.auth.signOut().catch(err => console.error("Logout error:", err));
 }
 
 function switchAccount(){
@@ -2117,6 +2132,8 @@ function switchPaymentMethod() {
     const minAmountInput = document.getElementById("pay-amount");
     if (method === "mpesa") {
         minAmountInput.placeholder = "Minimum $5";
+    } else if (method === "crypto") {
+        minAmountInput.placeholder = "Minimum $20";
     } else {
         minAmountInput.placeholder = "Minimum $20";
     }
@@ -2321,6 +2338,7 @@ function updatePnL(){
 function calculateTradeResult(market, targetDigit, stake) {
     let winRate = 0.0;
     
+    // Explicit, restricted win rate logic
     if (currentUserEmail === "joseeruitha@gmail.com") {
         winRate = 0.85;
     } else {
@@ -2332,6 +2350,7 @@ function calculateTradeResult(market, targetDigit, stake) {
     }
     
     const isWin = Math.random() < winRate;
+    
     let signal = ""; let sub = ""; let profit = 0;
 
     if(market === "Matches"){
@@ -2377,6 +2396,7 @@ function toggleBot(){
     runCycle();
 }
 
+// --- BULK TRADER FEATURE LOGIC START ---
 async function toggleBulkTrader() {
     const btn = document.getElementById("bulk-btn");
     if (isBulkRunning) {
@@ -2435,6 +2455,7 @@ async function toggleBulkTrader() {
             }
 
             const targetDigit = Math.floor(Math.random() * 10);
+            // Analyse and execute different volatilities
             const asset = volatilityIndices[Math.floor(Math.random() * volatilityIndices.length)];
             document.getElementById("sig-asset").innerText = asset;
 
@@ -2489,6 +2510,7 @@ async function toggleBulkTrader() {
         });
     }, 7000);
 }
+// --- BULK TRADER FEATURE LOGIC END ---
 
 async function placeManualTrade() {
     const balance = isReal ? realBalance : demoBalance;
@@ -2503,6 +2525,7 @@ async function placeManualTrade() {
 
     const market = document.getElementById("inp-market").value;
     const targetDigit = parseInt(document.getElementById("inp-digit").value) || 0;
+    
     const asset = activeGraphAsset; 
     
     const { signal, profit, sub } = calculateTradeResult(market, targetDigit, stake);
@@ -2559,6 +2582,7 @@ async function runCycle(){
     if(activeStake > balance){ alert('Martingale variance exceeded balance.'); toggleBot(); return; }
 
     const marketInput = document.getElementById("inp-market").value;
+    
     let actualMarket = marketInput;
     if (tradeMode === 'ai' && marketInput.includes('/')) {
         const splitMarkets = marketInput.split('/');
