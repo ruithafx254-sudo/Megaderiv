@@ -9,23 +9,23 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-/* RE-ENGINEERED MEGADERIV THEME */
+/* RE-ENGINEERED BLUE & WHITE MEGADERIV THEME */
 :root {
-    --bg: #070d14;                  
+    --bg: #030712;                  
     --card: #0f172a;                
     --card-elevated: #1e293b;       
-    --card-border: rgba(255, 255, 255, 0.06); 
-    --primary: #10b981; /* Professional Emerald Green */             
-    --primary-hover: #34d399;
+    --card-border: rgba(59, 130, 246, 0.12); 
+    --primary: #2563eb; /* Vibrant Royal Blue */             
+    --primary-hover: #3b82f6;
     --success: #22c55e;             
     --danger: #ef4444;                
     --warning: #f59e0b;
     --info: #3b82f6;
     --text: #f8fafc;                
     --muted: #94a3b8;
-    --overlay-bg: rgba(7, 13, 20, 0.85);
+    --overlay-bg: rgba(3, 7, 18, 0.85);
     --toast-bg: rgba(15, 23, 42, 0.95);
-    --nav-bg: rgba(7, 13, 20, 0.85);
+    --nav-bg: rgba(3, 7, 18, 0.85);
     --input-bg: rgba(255,255,255,0.03);
     --alpha-1: rgba(255,255,255,0.02);
     --alpha-2: rgba(255,255,255,0.03);
@@ -33,25 +33,25 @@
     --alpha-6: rgba(255,255,255,0.08);             
     --radius-ios: 16px;             
     --radius-large: 28px;           
-    --glow-primary: rgba(16, 185, 129, 0.2);
+    --glow-primary: rgba(37, 99, 235, 0.25);
 }
 
 [data-theme="light"] {
-    --bg: #f8fafc;                  
+    --bg: #f0f4f8;                  
     --card: #ffffff;                
-    --card-elevated: #f1f5f9;       
-    --card-border: rgba(0, 0, 0, 0.06); 
+    --card-elevated: #e2e8f0;       
+    --card-border: rgba(37, 99, 235, 0.1); 
     --text: #0f172a;                
     --muted: #64748b;
-    --overlay-bg: rgba(248, 250, 252, 0.85);
+    --overlay-bg: rgba(240, 244, 248, 0.85);
     --toast-bg: rgba(255, 255, 255, 0.95);
-    --nav-bg: rgba(248, 250, 252, 0.85);
+    --nav-bg: rgba(240, 244, 248, 0.85);
     --input-bg: rgba(0,0,0,0.02);
     --alpha-1: rgba(0,0,0,0.02);
     --alpha-2: rgba(0,0,0,0.04);
     --alpha-4: rgba(0,0,0,0.06);
     --alpha-6: rgba(0,0,0,0.08);
-    --glow-primary: rgba(16, 185, 129, 0.15);
+    --glow-primary: rgba(37, 99, 235, 0.15);
 }
 
 * {
@@ -169,7 +169,7 @@ button:active {
     border-radius: var(--radius-large);
     margin-top: 40px;
     margin-bottom: 40px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     flex-shrink: 0;
 }
 
@@ -204,9 +204,9 @@ button:active {
 }
 
 .auth-tab.active {
-    background: var(--card-elevated);
-    color: var(--text);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 4px 12px var(--glow-primary);
 }
 
 .input-group {
@@ -260,26 +260,27 @@ button:active {
 
 /* HEADER */
 .header {
-    padding: 20px;
+    padding: 18px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--bg);
+    background: var(--card);
     border-bottom: 1px solid var(--card-border);
     z-index: 10;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
 }
 
 .brand { font-weight: 900; font-size: 1.3rem; letter-spacing: -0.02em; }
 .brand span { color: var(--primary); }
 
-.header-controls { display: flex; align-items: center; gap: 12px; }
+.header-controls { display: flex; align-items: center; gap: 10px; }
 
 .refresh-btn {
-    background: var(--card);
+    background: var(--card-elevated);
     border: 1px solid var(--card-border);
     color: var(--text);
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     font-size: 1.1rem;
     display: flex;
@@ -288,10 +289,10 @@ button:active {
 }
 
 .account-selector {
-    padding: 9px 14px;
+    padding: 8px 12px;
     border: 1px solid var(--card-border);
     border-radius: 10px;
-    background: var(--card);
+    background: var(--card-elevated);
     color: var(--text);
     font-size: 0.85rem;
     font-weight: 700;
@@ -323,41 +324,49 @@ button:active {
     border-radius: var(--radius-large);
     padding: 20px;
     border: 1px solid var(--card-border);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.04);
 }
 
-/* BALANCE */
+/* REARRANGED DASHBOARD COMPONENT STYLES */
+.dashboard-top-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
 .balance-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px;
+    padding: 22px;
+    background: linear-gradient(135deg, var(--card) 0%, var(--card-elevated) 100%);
+    border: 1px solid var(--card-border);
 }
 
 .balance-title {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--muted);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 6px;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
 }
 
 .balance-amount {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 900;
     color: var(--text);
     letter-spacing: -0.02em;
 }
 
 .deposit-top-btn {
-    background: var(--text);
-    color: var(--bg);
-    padding: 12px 22px;
-    border-radius: 24px;
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 20px;
     font-weight: 800;
     font-size: 0.9rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 18px var(--glow-primary);
 }
 
 /* ACTIONS */
@@ -366,47 +375,47 @@ button:active {
 .action-btn {
     background: var(--card);
     border-radius: var(--radius-ios);
-    padding: 18px 16px;
+    padding: 16px;
     border: 1px solid var(--card-border);
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
     text-align: left;
 }
 
-.action-btn .btn-title { font-size: 1.05rem; font-weight: 800; color: var(--text); }
-.action-btn span { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+.action-btn .btn-title { font-size: 1rem; font-weight: 800; color: var(--text); }
+.action-btn span { font-size: 0.75rem; color: var(--muted); font-weight: 600; }
 
 .history-bar-btn {
     width: 100%;
     background: var(--card);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-ios);
-    padding: 16px;
+    padding: 14px 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 700;
     color: var(--text);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 /* ASSETS */
 .asset-selector-title {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--muted);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    margin-bottom: 10px;
-    padding-left: 4px;
+    margin-bottom: 8px;
+    padding-left: 2px;
 }
 
 .asset-bar {
     display: flex;
     gap: 8px;
     overflow-x: auto;
-    padding-bottom: 8px;
+    padding-bottom: 4px;
 }
 .asset-bar::-webkit-scrollbar { display: none; }
 
@@ -414,18 +423,18 @@ button:active {
     background: var(--alpha-2);
     border: 1px solid var(--card-border);
     color: var(--muted);
-    padding: 10px 18px;
-    border-radius: 24px;
-    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 700;
     white-space: nowrap;
 }
 
 .asset-btn-item.active {
-    background: var(--text);
-    color: var(--bg);
-    border-color: var(--text);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px var(--glow-primary);
 }
 
 /* CHART */
@@ -433,24 +442,24 @@ button:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
-.graph-asset-name { font-size: 1.05rem; font-weight: 800; color: var(--text); }
-.graph-live-ticker { font-size: 1.3rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
-.canvas-wrapper { width: 100%; height: 170px; position: relative; }
+.graph-asset-name { font-size: 1rem; font-weight: 800; color: var(--text); }
+.graph-live-ticker { font-size: 1.2rem; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
+.canvas-wrapper { width: 100%; height: 160px; position: relative; }
 
 /* CIRCULAR DIGIT SYSTEM */
 .digit-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    gap: 10px;
     justify-items: center;
 }
 
 .digit-circle-card {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: var(--alpha-1);
     border: 1px solid var(--card-border);
@@ -462,30 +471,30 @@ button:active {
 }
 
 .digit-node {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 900;
     color: var(--text);
     line-height: 1;
 }
 
 .digit-percentage {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     color: var(--muted);
     font-weight: 700;
-    margin-top: 4px;
+    margin-top: 3px;
 }
 
 .digit-circle-card.highest {
     border-color: var(--success);
-    background: rgba(34, 197, 94, 0.08);
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);
+    background: rgba(34, 197, 94, 0.1);
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.2);
 }
 .digit-circle-card.highest .digit-percentage { color: var(--success); }
 
 .digit-circle-card.lowest {
     border-color: var(--danger);
-    background: rgba(239, 68, 68, 0.08);
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+    background: rgba(239, 68, 68, 0.1);
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
 }
 .digit-circle-card.lowest .digit-percentage { color: var(--danger); }
 
@@ -496,16 +505,16 @@ button:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
-.ai-title { font-size: 1.2rem; font-weight: 800; color: var(--text); }
+.ai-title { font-size: 1.1rem; font-weight: 800; color: var(--text); }
 
 .live-badge {
     display: flex;
     align-items: center;
     gap: 6px;
-    background: rgba(16, 185, 129, 0.12);
+    background: rgba(37, 99, 235, 0.12);
     color: var(--primary);
     padding: 5px 12px;
     border-radius: 20px;
@@ -523,52 +532,52 @@ button:active {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
-    100% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.6); }
+    100% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
 }
 
 .signal-box {
     background: var(--card-elevated);
     border: 1px solid var(--card-border);
     border-radius: var(--radius-ios);
-    padding: 22px;
+    padding: 18px;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .signal-asset {
     color: var(--muted);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.05em;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
-.signal-main { font-size: 1.8rem; font-weight: 900; color: var(--text); letter-spacing: -0.02em; }
-.signal-sub { font-size: 0.85rem; color: var(--primary); margin-top: 6px; font-weight: 600; }
+.signal-main { font-size: 1.6rem; font-weight: 900; color: var(--text); letter-spacing: -0.02em; }
+.signal-sub { font-size: 0.8rem; color: var(--primary); margin-top: 4px; font-weight: 600; }
 
 .ai-inputs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .input-card {
     background: var(--alpha-2);
     border: 1px solid var(--card-border);
     border-radius: 14px;
-    padding: 14px;
+    padding: 12px 14px;
 }
 
 .input-card label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--muted);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
 .input-card input, .input-card select {
@@ -577,21 +586,21 @@ button:active {
     background: transparent;
     color: var(--text);
     font-weight: 800;
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .input-card select option { background: var(--card); color: var(--text); }
 
 .master-btn {
     width: 100%;
-    padding: 16px;
+    padding: 15px;
     border-radius: var(--radius-ios);
     background: var(--primary);
     color: #fff;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 800;
-    margin-top: 10px;
-    box-shadow: 0 8px 25px var(--glow-primary);
+    margin-top: 8px;
+    box-shadow: 0 8px 22px var(--glow-primary);
 }
 
 .master-btn.active {
@@ -609,7 +618,7 @@ button:active {
     background: var(--alpha-1);
     border-radius: 14px;
     border: 1px solid var(--card-border);
-    padding: 16px;
+    padding: 15px;
     margin-bottom: 10px;
 }
 
@@ -679,7 +688,7 @@ button:active {
     bottom: 0; left: 0; right: 0;
     display: flex;
     justify-content: space-around;
-    padding: 14px 10px 28px;
+    padding: 14px 10px 26px;
     background: var(--nav-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -691,7 +700,7 @@ button:active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     color: var(--muted);
     flex: 1;
     cursor: pointer;
@@ -699,7 +708,7 @@ button:active {
 }
 
 .nav-item.active { color: var(--primary); }
-.nav-icon { font-size: 1.4rem; }
+.nav-icon { font-size: 1.3rem; }
 .nav-label { font-size: 0.75rem; font-weight: 700; }
 
 /* MODALS & OVERLAYS */
@@ -758,11 +767,12 @@ button:active {
     width: 100%;
     padding: 16px;
     border-radius: var(--radius-ios);
-    background: var(--text);
-    color: var(--bg);
+    background: var(--primary);
+    color: #ffffff;
     font-size: 1rem;
     font-weight: 800;
     margin-top: 10px;
+    box-shadow: 0 6px 20px var(--glow-primary);
 }
 
 .invoice {
@@ -799,7 +809,7 @@ button:active {
     border: 1px solid var(--card-border);
     padding: 14px 18px;
     border-radius: 16px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
     animation: toastIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     align-items: center;
@@ -920,11 +930,11 @@ button:active {
     }
     
     .balance-card { grid-column: 1 / -1; }
-    #home > .grid { grid-column: 1 / 2; }
+    .grid { grid-column: 1 / 2; grid-row: 2; }
     .history-bar-btn { grid-column: 2 / 3; grid-row: 2; height: 100%; margin: 0; }
     #home > div:nth-of-type(4) { grid-column: 1 / 2; grid-row: 3; } 
-    #home > .card:nth-of-type(5) { grid-column: 1 / 2; grid-row: 4; } 
-    #home > .card:nth-of-type(6) { grid-column: 1 / 2; grid-row: 5; } 
+    #home > .card:nth-of-type(3) { grid-column: 1 / 2; grid-row: 4; } 
+    #home > .card:nth-of-type(4) { grid-column: 1 / 2; grid-row: 5; } 
     .floating-ai { grid-column: 2 / 3; grid-row: 3 / span 3; }
 
     .auth { align-items: center; justify-content: center; }
@@ -960,7 +970,7 @@ button:active {
             </div>
             <div id="bulk-popup-content" style="background: var(--alpha-2); border: 1px solid var(--card-border); border-radius: 14px; padding: 18px; margin-bottom: 20px; text-align: left;">
             </div>
-            <button class="modal-btn" style="background: var(--primary); color: white;" onclick="closeBulkPopupModal()">Acknowledge</button>
+            <button class="modal-btn" onclick="closeBulkPopupModal()">Acknowledge</button>
         </div>
     </div>
 
@@ -1008,7 +1018,7 @@ button:active {
             <button class="auth-btn" id="auth-btn" onclick="handleAuth()">Log In</button>
 
             <div class="auth-divider">OR</div>
-            <button class="auth-btn" id="deriv-login-btn" style="background: #ff444f; color: white; box-shadow: 0 8px 24px rgba(255, 68, 79, 0.25);" onclick="derivLogin()">Authenticate via Deriv</button>
+            <button class="auth-btn" id="deriv-login-btn" style="background: #2563eb; color: white; box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);" onclick="derivLogin()">Authenticate via Deriv</button>
         </div>
     </div>
 
@@ -1017,7 +1027,7 @@ button:active {
     <header class="header">
         <div class="brand">MEGA<span>DERIV</span></div>
         <div class="header-controls">
-            <div class="theme-bar" onclick="toggleTheme()" style="margin-right: 6px;">
+            <div class="theme-bar" onclick="toggleTheme()" style="margin-right: 4px;">
                 <div class="theme-indicator"></div>
             </div>
             <button class="refresh-btn" onclick="window.location.reload()">↻</button>
@@ -1030,16 +1040,19 @@ button:active {
 
     <div class="main">
 
+        <!-- REARRANGED HOME VIEW LAYOUT -->
         <div class="view active" id="home">
             
+            <!-- 1. Balance Banner Card -->
             <div class="card balance-card">
                 <div>
                     <div class="balance-title">Account Balance</div>
                     <div class="balance-amount" id="balance">$0.00</div>
                 </div>
-                <button class="deposit-top-btn" onclick="openPayment('deposit')">Deposit</button>
+                <button class="deposit-top-btn" onclick="openPayment('deposit')">+ Deposit</button>
             </div>
 
+            <!-- 2. Quick Action Buttons & History Bar -->
             <div class="grid">
                 <button class="action-btn" onclick="openPayment('deposit')">
                     <span class="btn-title">Deposit Funds</span>
@@ -1052,17 +1065,17 @@ button:active {
             </div>
 
             <button class="history-bar-btn" onclick="openHistory()">
-                <span>Transaction History</span>
-                <span style="color:var(--muted); font-size:1.2rem;">›</span>
+                <span>Transaction History Ledger</span>
+                <span style="color:var(--primary); font-size:1.2rem;">›</span>
             </button>
 
-            <div>
-                <div class="asset-selector-title">Deriv Volatility Indices</div>
-                <div class="asset-bar" id="volatility-bar"></div>
-            </div>
-
+            <!-- 3. Live Market Chart & Volatility Selector -->
             <div class="card">
-                <div class="graph-header">
+                <div style="margin-bottom: 12px;">
+                    <div class="asset-selector-title">Deriv Volatility Indices</div>
+                    <div class="asset-bar" id="volatility-bar"></div>
+                </div>
+                <div class="graph-header" style="margin-top: 14px;">
                     <div class="graph-asset-name" id="selected-asset-label">Volatility 10 Index</div>
                     <div class="graph-live-ticker" id="graph-ticker-price">--</div>
                 </div>
@@ -1071,18 +1084,14 @@ button:active {
                 </div>
             </div>
 
-            <div class="card">
-                <div class="asset-selector-title">Last Digit Stats (0 - 9)</div>
-                <div class="digit-grid" id="digit-grid-nodes"></div>
-            </div>
-
+            <!-- 4. Trading Engine Panel (AI / Manual / Bulk) -->
             <div class="card floating-ai">
                 <div class="ai-head">
                     <div class="ai-title" id="trade-panel-title">Trading Engine</div>
                     <div class="live-badge" id="live-indicator"><div class="dot"></div>Live</div>
                 </div>
 
-                <div class="auth-tabs" style="margin-bottom: 20px; padding: 4px; border: 1px solid var(--card-border); display: grid; grid-template-columns: repeat(3, 1fr);">
+                <div class="auth-tabs" style="margin-bottom: 16px; padding: 3px; border: 1px solid var(--card-border); display: grid; grid-template-columns: repeat(3, 1fr);">
                     <button class="auth-tab active" id="mode-ai-tab" onclick="switchTradeMode('ai')">AI Bot</button>
                     <button class="auth-tab" id="mode-manual-tab" onclick="switchTradeMode('manual')">Manual</button>
                     <button class="auth-tab" id="mode-bulk-tab" onclick="switchTradeMode('bulk')">Bulk Trader</button>
@@ -1094,22 +1103,22 @@ button:active {
                     <div class="signal-sub" id="sig-status">AI Engine Ready to Start</div>
                 </div>
 
-                <div class="input-card" style="margin-bottom:12px;">
-                    <label>Stake ($) <span style="text-transform:none; font-size:0.7rem; color:var(--primary); margin-left:4px;">(Minimum stake 0.35)</span></label>
+                <div class="input-card" style="margin-bottom:10px;">
+                    <label>Stake ($) <span style="text-transform:none; font-size:0.65rem; color:var(--primary); margin-left:4px;">(Min 0.35)</span></label>
                     <input type="number" id="inp-stake" value="10" min="0.35" step="0.01">
                 </div>
 
-                <div class="input-card" style="margin-bottom:12px;">
+                <div class="input-card" style="margin-bottom:10px;">
                     <label>Strategy / Market Type</label>
                     <select id="inp-market" onchange="toggleDigitBox()"></select>
                 </div>
 
-                <div class="input-card" id="digit-box" style="margin-bottom:12px;">
+                <div class="input-card" id="digit-box" style="margin-bottom:10px;">
                     <label>Target Digit</label>
                     <input type="number" id="inp-digit" value="4" min="0" max="9">
                 </div>
 
-                <div class="input-card" id="runs-box" style="margin-bottom:12px; display:none;">
+                <div class="input-card" id="runs-box" style="margin-bottom:10px; display:none;">
                     <label>Number of Runs</label>
                     <input type="number" id="inp-runs" value="10" min="1">
                 </div>
@@ -1119,7 +1128,7 @@ button:active {
                     <div class="input-card"><label>Stop Loss ($)</label><input type="number" id="inp-sl" value="100"></div>
                 </div>
 
-                <div class="input-card" style="margin-bottom: 12px;" id="martingale-box">
+                <div class="input-card" style="margin-bottom: 10px;" id="martingale-box">
                     <label>Martingale Multiplier</label>
                     <input type="number" id="inp-multi" value="2.1" step="0.1">
                 </div>
@@ -1128,8 +1137,16 @@ button:active {
                 <button class="master-btn" id="manual-btn" style="display:none;" onclick="placeManualTrade()">Place Trade</button>
                 <button class="master-btn" id="bulk-btn" style="display:none; background: var(--warning); color: #000; box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);" onclick="toggleBulkTrader()">Start Bulk Trader</button>
             </div>
+
+            <!-- 5. Last Digit Analysis Grid (Moved near bottom for clean analytics flow) -->
+            <div class="card">
+                <div class="asset-selector-title" style="margin-bottom: 12px;">Last Digit Stats (0 - 9)</div>
+                <div class="digit-grid" id="digit-grid-nodes"></div>
+            </div>
+
         </div>
 
+        <!-- LEDGER VIEW -->
         <div class="view" id="ledger">
             <div class="card">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
@@ -1145,6 +1162,7 @@ button:active {
             </div>
         </div>
 
+        <!-- PROFILE VIEW -->
         <div class="view" id="profile">
             <div class="card profile">
                 <div class="avatar" id="avatar-initial">M</div>
@@ -1271,7 +1289,7 @@ button:active {
                     <input type="number" class="modal-input" id="pay-amount" placeholder="Minimum $20" style="box-shadow: 0 0 12px var(--glow-primary); border-color: var(--primary);">
                 </div>
                 
-                <button class="modal-btn" style="background:var(--primary); color:#fff;" onclick="proceedInvoice()">Continue</button>
+                <button class="modal-btn" onclick="proceedInvoice()">Continue</button>
             </div>
 
             <div id="step2" style="display:none;">
@@ -1281,7 +1299,7 @@ button:active {
                     <div class="invoice-row"><span class="invoice-label">Phone</span><span class="invoice-value" id="inv-phone">--</span></div>
                     <div class="invoice-row"><span class="invoice-label">Amount to Pay</span><span class="invoice-value" style="color:var(--success);">KSh <span id="inv-amount">0</span></span></div>
                 </div>
-                <button class="modal-btn" style="background:var(--success); color:white;" onclick="executeExternalPayment()">Pay Now</button>
+                <button class="modal-btn" style="background:var(--success);" onclick="executeExternalPayment()">Pay Now</button>
             </div>
 
             <div id="step3" style="display:none; text-align:center; padding: 30px 0;">
@@ -1551,7 +1569,7 @@ function initializeChartContext() {
             labels: labels,
             datasets: [{
                 data: historicalTicks,
-                borderColor: '#10b981',
+                borderColor: '#2563eb',
                 borderWidth: 2,
                 pointRadius: 0,
                 pointHoverRadius: 0,
@@ -1566,7 +1584,7 @@ function initializeChartContext() {
             scales: {
                 x: { display: false },
                 y: {
-                    grid: { color: 'rgba(255, 255, 255, 0.03)', drawTicks: false },
+                    grid: { color: 'rgba(59, 130, 246, 0.04)', drawTicks: false },
                     border: { display: false },
                     ticks: { color: '#94a3b8', font: { size: 10 }, maxTicksLimit: 4 }
                 }
